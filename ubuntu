@@ -1,0 +1,85 @@
+#remove 3rd para
+sed '3d' fileName.txt    
+sed '1,3d' filename.txt
+sed -i '/My/,/You/d' datafile #remove between
+sed '/My/,10d' datafile
+#删除包含"My"的行到第十行的内容
+
+#forget to type sudo, to edit a file in vim
+:w !sudo sh -c "cat > %"
+
+#how many lines
+wc 0l file.txt
+
+#rename files by replacing words
+ls *.xxx | while read fn; do
+    mv "${fn}" "${fn/oldword/newword}";
+    done
+
+
+
+
+
+
+
+#system
+#========================================
+#find the compiler version
+dpkg --list | grep compiler
+gfortran --version
+
+$ which g++ gcc /usr/bin/gcc 
+$ gcc --version
+
+
+#add source
+#vim
+/etc/apt/sources.list
+#add
+deb http://cz.archive.ubuntu.com/ubuntu wily main universe
+
+#check device:
+sudo fdisk -l
+    /dev/sda6
+
+#problems
+#========================================
+#auto start wifi
+vim /etc/rc.local
+rfkill unblock wifi
+
+
+
+#cluster
+#======================================
+#see binary files:
+of -f filename | head
+
+#see backgound jobs:
+ps -ef | grep tides00
+top
+
+#recover delete files:
+sudo ntfsundelete /dev/sda6 -s -f -m abstract.tex
+#failed!!!!!!!
+
+
+#wall
+#ssh+autoproxy ---failed
+#===================================
+sudo ssh -qTfnN -D 7070 enjoyphp@enjoyphp.com
+-q :- be very quite, we are acting only as a tunnel. 使用安静模式
+-T :- Do not allocate a pseudo tty, we are only acting a tunnel.不要分配tty
+-f :- move the ssh process to background, as we don’t want to interact with this ssh session directly. 后台运行
+-N :- Do not execute remote command.不执行远程命令
+-n :- redirect standard input to /dev/null.从定向输出到/dev/nul
+
+#install autoproxy
+gfwlist
+ssh -D 
+alias fq='sudo ssh -qTfnN -D 7070 Username@216.194.70.6'
+
+#=======================================
+#host
+/etc/hosts
+sudo rcnscd restart

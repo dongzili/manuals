@@ -1,0 +1,50 @@
+mplayer:
+mplayer -af scaletempo -speed 1.1 video.mp4
+mplayer file.avi -ss 23:22 would be 23 minutes and 22 seconds in.
+speed: [],{}
+skip: ->,up, pageup
+
+
+eduroam configure:
+User authentication setting
+	EAP Authentication Type: PEAP/PEAPv0
+	Authentication Method: MSCHAPv2
+	Anonymous Identity: @uwaterloo.ca
+	user id: d267li@uwaterloo.ca
+
+dropbox:
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+
+~/.dropbox-dist/dropboxd
+
+
+adobe acrobat:
+sudo add-apt-repository "deb http://archive.canonical.com/ precise partner"
+sudo apt-get update
+sudo apt-get install acroread
+
+#remove from the repository
+sudo add-apt-repository -r "deb http://archive.canonical.com/ precise partner"
+sudo apt-get update
+
+make default viewer:
+sudo gedit /etc/gnome/defaults.list
+application/pdf=evince.desktop
+to application/pdf=acroread.desktop
+
+pdf editor
+    xournal
+formula for ppt:
+    klatex
+
+painter
+    pinta
+
+dic
+    stardict
+    add source: http://abloz.com/huzheng/stardict-dic/zh_CN/
+    for tar in *.tar.bz2; do tar xjf $tar; done
+    mv stardic* /usr/share/stardict/dic/
+    sudo apt-get remove --auto-remove stardict
+
+

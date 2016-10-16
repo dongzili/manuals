@@ -1,0 +1,68 @@
+#BASIC
+#========================
+function:
+	def func(a):
+		return 0
+
+import myfunction as mf
+want to reload
+	reload (mf)
+
+if:
+	if x == 0:
+		print '0'
+	elif x < 0:
+		x = 1
+	else:
+		print '1'
+
+for:	
+	words = ['cat','window']
+	for w in words:
+		print w,len(w)
+
+delete arrays:
+	del array
+
+print:
+	%s string
+	print "If I add %d, %d, and %d I get %d." % (
+    my_age, my_height, my_weight, my_age + my_height + my_weight)
+#BASIC CALCULATION:
+#========================
+exp: a**2
+imaginary: j
+choose imaginary part: np.imag(a)
+angle: np.angle(a)
+shift: np.roll(a,2,1)
+	shift a by 2: 1:x_axis, 0:y_axis
+create array:
+	a = np.arange(0,9) #0-8
+reshape:
+	a = np.reshape(a,(3,3))
+transverse:
+	a.T
+#PLOTS
+#========================
+plot with arrows:
+    quiver
+imshow:
+	plt.imshow(data,cmap='gray',interpolation='nearest',aspect='equal')
+	arguments:
+		extent = [0,5,0,5] : axis range: l,r,b,t
+	zoom in:
+	 plt.xlim(0.5, 1.5)
+	 plt.ylim(0.5,1.5)
+
+#SCIENTIFIC FUNCTION
+#========================
+Fourier transformation:
+	from scipy.fftpack import fft2, fftshift
+
+	numpy.fft.fftshift(x, axes=None)[source]
+		Shift the zero-frequency component to the center of the spectrum
+		eg:
+			array([ 0.,  1.,  2.,  3.,  4., -5., -4., -3., -2., -1.])
+			>>> np.fft.fftshift(freqs)
+			array([-5., -4., -3., -2., -1.,  0.,  1.,  2.,  3.,  4.])
+	fft2(data)

@@ -1,0 +1,4 @@
+add a tick script:
+ytickformat='logtick'
+
+loadct

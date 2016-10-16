@@ -1,0 +1,64 @@
+apt:
+	homebrew:
+	brew install app
+
+edit:
+	macvim
+	brew install macvim
+
+search:
+	alfred
+
+share files:
+	Open a finder window and hit cmd-K
+	Type 'smb://ipAddress' where 'ipAddress' is your ipaddress
+
+synsc files in remote place:
+	sshfs:
+	brew cask install osxfuse
+	brew install homebrew/fuse/sshfs
+
+display on remote machine:
+	brew install xquartz
+	logout login
+	ssh -X -Y 
+
+mails:
+	open attachments in a mail -> auto download in
+	~/Library/Containers/com.apple.mail/Data/Library/Mail 
+	add a line in .bash_profile
+
+workflow:
+	automater -> service -> add
+	stored in /Users/dongzili/Library/Services
+
+SHORTCUTS:
+	translate: select, command+control+D
+	find home: control+f, finder; command+shift+H
+	switch tab: control+tab 
+	switch window: command + tab
+
+added: 
+	first define the workflow in automater, 
+	then add shortcuts in system preference, keyboard, shortcuts, service
+	
+	label blue functional: command + b
+	label green introductory: command + g
+	label pink exploration: command + control + l
+	label orange basic: command+control+b
+
+	move to another workspace: alt+ left/right
+#SHELL
+	echo {e..h}
+		efh
+	echo ab{e..h}
+		abe abf abh
+	mv a{.tex,}
+		= mv a.tex a
+	create files:
+		touch {a..c}.text
+	
+	look at binary files:
+		od filename -f |head
+			type	-f float
+					-F double

@@ -1,0 +1,22 @@
+sudo apt-get install klatexformula
+# for type formula on ppt
+
+\gtrsim		greater, approx
+\lessim
+
+\geqslant greater equal
+\leqslant
+
+\simeq
+': \prime
+
+\mathrm{}
+:in equation, rm math mode
+
+l: $\ell$
+
+thick: to show vector:
+\bm{}
+
+complex conjugate:
+\aster

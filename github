@@ -1,0 +1,15 @@
+#for a new file
+echo "# tidal-ksz" >> README.md
+git init	--prepare the state
+	git status  --red untracted files
+git add *	--mark the file as to be committed
+git commit -m "first commit"
+
+#push existing repository from the command line
+git remote add origin https://github.com/fleaf5/tidal-ksz.git
+	git remote -v
+git push -u origin master
+
+#affilliated sources
+SPH :
+online test codes
