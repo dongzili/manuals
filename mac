@@ -1,6 +1,11 @@
 apt:
 	homebrew:
+	brew info app
 	brew install app
+	brew list [--unbrewed|--versions] [formula] ...
+  	brew search [/regex/] [substring]
+    brew uninstall formula ...
+	brew update
 
 edit:
 	macvim

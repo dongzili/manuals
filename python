@@ -1,5 +1,17 @@
+#NOTICE!
+#====================
+copy array is just the pass of pointer!!!
+	eg: a=[1,2], b=a, b[1]=0, a->[1,0]
+
+array a[i,j], i shu, j heng
+
+help(np.meshgrid)
+
 #BASIC
 #========================
+setup: 
+	in .bash_profile
+	export PYTHONSTARTUP=$HOME/Documents/manual/setup/.python_setup.py
 function:
 	def func(a):
 		return 0
@@ -21,6 +33,9 @@ for:
 	for w in words:
 		print w,len(w)
 
+create arrays:
+	a = np.zeros((ndim,ndim),float)
+
 delete arrays:
 	del array
 
@@ -28,6 +43,24 @@ print:
 	%s string
 	print "If I add %d, %d, and %d I get %d." % (
     my_age, my_height, my_weight, my_age + my_height + my_weight)
+	
+	a=0.0001
+	repr(a)
+	'1e-3'
+
+replace string content:
+	str = "this is string example....wow!!! this is really string";
+	str = str.replace("is", "was")
+
+calculate 2d array size:
+	len(array)*len(array[0])
+
+set smaller than certain value to be 0:
+	a = np.arange(10)
+	mask_indices = a < 6
+	a [mask_indices] = 0
+	np.count_nonzero(mask_indices)
+		6
 #BASIC CALCULATION:
 #========================
 exp: a**2
@@ -66,3 +99,9 @@ Fourier transformation:
 			>>> np.fft.fftshift(freqs)
 			array([-5., -4., -3., -2., -1.,  0.,  1.,  2.,  3.,  4.])
 	fft2(data)
+
+random number:
+	from np.random import rand,seed
+	seed(12)
+	rand(10)-0.5
+

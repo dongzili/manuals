@@ -90,3 +90,39 @@ def read_data(dir,num_columns,num_rows,filer,filei):
     del datai
 
     return I
+
+def get_mask(num_rows,num_columns,doppler,delay,doppler1,doppler2,delay1,delay2):
+    mask = np.zeros((num_rows,num_columns))
+    
+    delay_max = mask.shape[0]/2 + 2500 #np.int(5.6*mask.shape[0]/10 )
+    delay_min = mask.shape[0]/2 #np.argmin(np.absolute(delay-0.0999))#16384/2 +559 #cut of at a delay of 0.07 ms                      
+    doppler_min = 0 #mask.shape[1]/2 
+    doppler_max = mask.shape[1]
+
+    #delay1 = 0.175
+    #doppler1 = 21.2
+    #delay2 = 0.180
+    #doppler2 = doppler1
+
+    delayi = np.argmin(abs(delay-np.average([delay1,delay2])))
+    doppleri = np.argmin(abs(doppler-np.average([doppler1,doppler2])))
+
+
+    mask[delay_min:delay_max,doppler_min:doppler_max]=1.
+    for i in range(mask.shape[1]):
+        delayl=parabola(doppler[i],doppler1,delay1)
+        delayu=parabola(doppler[i],doppler2,delay2)
+        mask[:,i] = np.where(delay>delayu, 0, mask[:,i])
+        mask[:,i] = np.where(delay<delayl, 0, mask[:,i])
+    
+    return mask
+
+def wiener_deconvolution(y,H):
+    signal = np.absolute(y-np.mean(y))+np.absolute(1./H-np.mean(1./H))
+    noise = 2.*np.average(np.absolute(y-np.mean(y)))
+    F = np.absolute(H)/np.conjugate(H)
+    W = np.absolute(F)**2./(np.absolute(F)**2.+noise/signal)
+    Ic = fftshift(fft2(y/F*W))
+    #Ic = np.roll(np.roll(Ic,doppleri-len(doppler)/2,1),delayi-len(delay)/2,0)
+    return Ic
+
